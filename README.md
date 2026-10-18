@@ -5,8 +5,8 @@
 </p>
 
 <p align="center">
-  一款基于 <b>Python + PySide6</b> 的跨平台桌面 GUI 工具<br/>
-  一键完成 <b>下载 → 解压 → 环境变量配置</b> 全流程，让开发环境搭建不再是重复劳动
+  一款基于 <b>Python + PySide6</b> 的跨平台桌面工具<br/>
+  一键完成常用开发组件的 <b>下载 → 解压（编译）→ 环境变量配置</b>，让开发环境搭建不再是重复劳动
 </p>
 
 <p align="center">
@@ -14,14 +14,43 @@
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg" alt="platform"/>
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="license"/>
   <img src="https://img.shields.io/badge/GUI-PySide6-brightgreen.svg" alt="pyside6"/>
-  <a href="https://github.com/vfaner/murig/releases"><img src="https://img.shields.io/github/v/release/vfaner/murig?color=orange" alt="release"/></a>
+  <img src="https://gitee.com/super_rgh/murig/badge/star.svg?theme=dark" alt="Gitee Stars"/>
+  <img src="https://gitee.com/super_rgh/murig/badge/fork.svg?theme=dark" alt="Gitee Forks"/>
 </p>
+
+<p align="center">
+  <b>最新版本：v1.2.0</b> ·
+  <a href="https://github.com/vfaner/murig">GitHub</a> ·
+  <a href="https://gitee.com/super_rgh/murig">Gitee</a> ·
+  <a href="https://github.com/vfaner/murig/releases">Releases</a> ·
+  <a href="https://github.com/vfaner/murig/issues">Issues</a>
+</p>
+
+---
+
+## 📖 目录
+
+- [下载即用](#-下载即用推荐)
+- [项目简介](#-项目简介)
+- [功能特性](#-功能特性)
+- [界面预览](#-界面预览)
+- [快速开始](#-快速开始源码运行)
+- [支持的组件](#-支持的组件)
+- [使用说明](#-使用说明)
+- [配置工作空间](#-配置工作空间安装目录)
+- [技术栈](#-技术栈)
+- [常见问题](#-常见问题faq)
+- [更新日志](#-更新日志)
+- [参与贡献](#-参与贡献)
+- [联系方式](#-联系方式)
+- [支持作者](#-支持作者)
+- [许可证](#-许可证)
 
 ---
 
 ## 📥 下载即用（推荐）
 
-> **不需要 Python 环境，不需要克隆源码，双击即可运行。** 到 **[Releases 页面](https://github.com/vfaner/murig/releases/latest)** 下载对应系统的版本：
+> **不需要 Python 环境，不需要克隆源码，双击即可运行。** 到 **[Releases 页面](https://github.com/vfaner/murig/releases/latest)** 下载对应系统的版本（[Gitee 镜像](https://gitee.com/super_rgh/murig/releases)同步发布）：
 
 | 系统 | 下载文件 | 说明 |
 |------|----------|------|
@@ -37,6 +66,27 @@
 
 ---
 
+## 🧭 项目简介
+
+MuRig 把「找官网、对系统和架构、下载解压、配置环境变量、开新终端验证」这套重复的体力活，收敛为桌面应用里的几次点击。
+
+**适用场景**
+
+- **新电脑 / 新入职**：半小时内拉起 Java、Python、前端、数据库、大数据、AI 等常用环境
+- **教学与演示**：为机房、培训班批量准备统一版本的工具链
+- **个人学习**：想试试某个中间件或数据库，又不想被安装步骤劝退
+
+**它解决了什么**
+
+- 官方下载源分散、命名规则各异 → 内置 29 个组件的官方直链与版本清单
+- Windows / macOS / Linux 与 x64 / arm64 分发包不同 → 自动识别并选择正确的包
+- 环境变量配置繁琐易错 → 自动写入并幂等更新，重复安装不产生脏数据
+- 默认装 C 盘 / 家目录 → 全局、分类、单组件三级可配置安装目录
+
+**项目定位**：开源、离线可用、只做「下载 + 解压 + 环境变量」三件事，不接管数据库初始化等系统级操作，边界清晰、可预期。
+
+---
+
 ## ✨ 功能特性
 
 - 🖥️ **跨平台**：Windows / macOS / Linux，自动识别 x64 / arm64 并挑选正确的官方分发包
@@ -48,6 +98,43 @@
 - 📁 **可配置工作空间**：全局 / 分类 / 单组件三级安装目录，见 [配置工作空间](#-配置工作空间安装目录)
 - 🎨 **现代化 UI**：无边框窗口、圆角卡片、渐变进度条、四色分级日志
 - 🧠 **偏好记忆**：记住每个组件上次选择的版本，下次启动自动恢复
+
+---
+
+## 📸 界面预览
+
+| 主界面 | 版本选择 |
+|:---:|:---:|
+| <img src="assets/murig.png" width="460"/><br/><sub>六大分类、模糊搜索、状态标签与实时日志</sub> | <img src="assets/murig_db_version.png" width="460"/><br/><sub>版本实时抓取官方源，键入关键字即可过滤</sub> |
+| **工作空间设置** | **关于我们** |
+| <img src="assets/murig_work.png" width="460"/><br/><sub>全局 / 分类 / 单组件三级安装目录</sub> | <img src="assets/murig_about.png" width="460"/><br/><sub>联系方式与产品导航</sub> |
+
+---
+
+## 🚀 快速开始（源码运行）
+
+环境要求：Python **3.9+**；Windows 10/11、macOS 12+、Ubuntu 20.04+。
+
+```bash
+git clone https://github.com/vfaner/murig.git
+cd murig
+pip install -r requirements.txt   # PySide6 + requests
+python main.py
+```
+
+- 首次启动自动创建工作目录（默认 `~/.env-tools/`，可在「工作空间」修改）
+- macOS/Linux 装 Redis、Linux 装 PostgreSQL 需要 `make` 与 C 编译器；装 Claude Code 需先装 Node.js
+
+工作目录布局：
+
+```
+~/.env-tools/              # 可在「工作空间」改到任意盘
+├── jdk/
+│   ├── downloads/         # 原始压缩包
+│   └── jdk-17/            # 解压后的组件
+├── maven/
+└── ...
+```
 
 ---
 
@@ -118,45 +205,6 @@
 
 ---
 
-## 📸 截图预览
-
-<p align="center">
-  <img src="assets/murig_db_version.png" alt="版本下拉框" width="760"/><br/>
-  <sub>版本下拉框：版本列表实时抓自官方源，可键入关键字过滤</sub>
-</p>
-
-<p align="center">
-  <img src="assets/murig_about.png" alt="关于我们" width="760"/><br/>
-  <sub>关于我们：联系方式与产品导航</sub>
-</p>
-
----
-
-## 🚀 快速开始（源码运行）
-
-```bash
-git clone https://github.com/vfaner/murig.git
-cd murig
-pip install -r requirements.txt   # PySide6 + requests
-python main.py
-```
-
-- 需要 Python 3.9+；首次启动自动创建工作目录（默认 `~/.env-tools/`，可在「工作空间」修改）
-- macOS/Linux 装 Redis、Linux 装 PostgreSQL 需要 `make` 与 C 编译器；装 Claude Code 需先装 Node.js
-
-工作目录布局：
-
-```
-~/.env-tools/              # 可在「工作空间」改到任意盘
-├── jdk/
-│   ├── downloads/         # 原始压缩包
-│   └── jdk-17/            # 解压后的组件
-├── maven/
-└── ...
-```
-
----
-
 ## 📝 使用说明
 
 1. **筛选（可选）**：点击分类胶囊，或在搜索框输入软件名 / 别名 / 分类名
@@ -178,10 +226,6 @@ python main.py
 3. **全局默认**：一键修改所有组件的安装位置；
 4. 均未设置时回退内置默认 `~/.env-tools/`。
 
-<p align="center">
-  <img src="assets/murig_work.png" alt="工作空间设置弹窗" width="760"/>
-</p>
-
 说明：
 
 - 设置保存在 `~/.murig/config.json`，旧版 `~/.env-tools/config.json` 首次启动自动迁移；
@@ -191,18 +235,21 @@ python main.py
 
 ---
 
-## 🛠️ 自定义与打包
+## 🏗️ 技术栈
 
-- **新增组件 / 版本**：编辑 `main.py` 的 `build_components()`；版本列表只是离线默认，启动后会被官方源抓取结果覆盖
-- **更换镜像**：把 URL 前缀替换为华为云 `repo.huaweicloud.com`、清华 TUNA `mirrors.tuna.tsinghua.edu.cn` 或阿里云 `mirrors.aliyun.com`
-- **本地打包**：`pip install pyinstaller && pyinstaller murig.spec --noconfirm --clean`
-- **自动发布**：推 tag（如 `git tag v1.2.0 && git push origin v1.2.0`），GitHub Actions 在 Windows / macOS (arm64 + x64) / Linux 上打包并自动创建 Release
+- **语言 / GUI**：Python 3.9+、PySide6（Qt 6 官方 Python 绑定）
+- **网络**：`requests`，流式下载 + 官方源版本抓取，失败自动降级
+- **解包**：`zipfile` / `tarfile`，OceanBase RPM 由内置 xz + cpio 解析器解包
+- **环境变量**：Windows 通过 `winreg` 直写注册表；macOS/Linux 向 shell rc 写入带 marker 的幂等块
+- **并发**：`QThread` 后台下载与版本抓取，UI 全程不阻塞
+- **架构**：单文件应用（`main.py`），无数据库、无服务端依赖
+- **构建发布**：PyInstaller + GitHub Actions，一次 tag 产出 Windows / macOS (arm64 + x64) / Linux 四份产物
 
 ---
 
 ## ❓ 常见问题（FAQ）
 
-**版本抓取失败 / 下载卡住？** 抓取失败自动回退内置版本列表，功能不受影响；下载卡住点「取消」重试，或按上文更换镜像。
+**版本抓取失败 / 下载卡住？** 抓取失败自动回退内置版本列表，功能不受影响；下载卡住点「取消」重试，或更换下载镜像。
 
 **环境变量写入失败 / 会覆盖旧值吗？** Windows 默认写用户级变量，通常无需管理员权限，失败时以管理员身份重跑。重复安装会用最新路径覆盖 `XXX_HOME`，`PATH` 只追加不重复。
 
@@ -216,24 +263,40 @@ python main.py
 
 ---
 
-## 📁 目录结构
+## 🗺️ 更新日志
 
-```
-murig/
-├── main.py                             # 主程序（UI + 全部逻辑）
-├── requirements.txt                    # 依赖清单
-├── murig.spec                          # PyInstaller 打包配置
-├── README.md / README_EN.md            # 中文 / 英文说明
-├── LICENSE                             # MIT 许可证
-├── .github/workflows/
-│   └── build-and-release.yml           # 四产物自动构建 + 发布
-└── assets/                             # 截图与打赏码
-    ├── murig.png                       # 主界面截图
-    ├── murig_db_version.png            # 版本下拉框截图
-    ├── murig_work.png                  # 工作空间弹窗截图
-    ├── murig_about.png                 # 关于我们截图
-    └── wechat.png / alipay.png / qq.png
-```
+- **v1.2.0**（2026-10-10）：新增三级可配置工作空间（全局 / 分类 / 单组件安装目录）、工作空间扫描检测、卡片「安装到：…」提示、全新文件夹图标与界面细节优化
+- **v1.1.0**（2026-10-08）：品牌升级为 MuRig，macOS 提供 arm64 / x64 双架构安装包，README 与项目署名规范化
+- **v1.0.x**：首个稳定版本，内置 29 个常用开发组件，支持下载、解压（编译）与环境变量自动配置
+
+完整版本历史与安装包见 [Releases](https://github.com/vfaner/murig/releases)。
+
+---
+
+## 🤝 参与贡献
+
+欢迎提交 Issue 与 Pull Request，尤其欢迎补充新的组件、国内镜像与文档改进。
+
+1. Fork 本仓库并创建分支：`git checkout -b feat/your-feature`
+2. 提交改动（建议一个提交只做一件事）：`git commit -m "feat: ..."`
+3. 推送分支并创建 Pull Request，说明动机与验证方式
+4. 发现 Bug 或有新组件需求，直接提 [Issue](https://github.com/vfaner/murig/issues) 即可
+
+**开发提示**
+
+- 新增组件：在 `main.py` 的 `build_components()` 中补充 `Component` 定义，下载地址请使用官方或镜像直链
+- 提交前请确认 `python main.py` 可正常启动；涉及下载逻辑的改动请实际跑通一次
+- 环境变量相关改动请同时考虑 Windows / macOS / Linux 三个平台
+
+---
+
+## 📮 联系方式
+
+- 问题反馈：[GitHub Issues](https://github.com/vfaner/murig/issues) · [Gitee Issues](https://gitee.com/super_rgh/murig/issues)
+- QQ：817094 / 2912167928
+- QQ 群：426669837
+- 微信：qqmu66
+- 产品导航：<https://nav.qqmu.com>
 
 ---
 
