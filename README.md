@@ -19,12 +19,18 @@
 </p>
 
 <p align="center">
-  <b>最新版本：v1.2.0</b> ·
+  <b>最新版本：v1.2.0</b> · 活跃维护中 ·
   <a href="https://github.com/vfaner/murig">GitHub</a> ·
   <a href="https://gitee.com/super_rgh/murig">Gitee</a> ·
   <a href="https://github.com/vfaner/murig/releases">Releases</a> ·
   <a href="https://github.com/vfaner/murig/issues">Issues</a>
 </p>
+
+| 🚀 **开箱即用** | 📦 **全流程自动化** |
+|:---:|:---:|
+| 内置 **29 个**常用组件，官方直链与版本实时抓取 | 下载 → 解压（编译）→ 环境变量，一次点击完成 |
+| 📁 **安装位置可控** | 🖥️ **原生跨平台** |
+| 全局 / 分类 / 单组件三级工作空间 | Windows、macOS（arm64 / x64）、Linux |
 
 ---
 
@@ -38,6 +44,7 @@
 - [支持的组件](#-支持的组件)
 - [使用说明](#-使用说明)
 - [配置工作空间](#-配置工作空间安装目录)
+- [项目结构](#-项目结构)
 - [技术栈](#-技术栈)
 - [常见问题](#-常见问题faq)
 - [更新日志](#-更新日志)
@@ -84,6 +91,8 @@ MuRig 把「找官网、对系统和架构、下载解压、配置环境变量�
 - 默认装 C 盘 / 家目录 → 全局、分类、单组件三级可配置安装目录
 
 **项目定位**：开源、离线可用、只做「下载 + 解压 + 环境变量」三件事，不接管数据库初始化等系统级操作，边界清晰、可预期。
+
+**安全与透明**：不收集任何用户数据；安装包全部来自组件官方源；环境变量只写入当前用户（Windows 用户级注册表 / macOS·Linux 的 shell 配置文件），以带标记的幂等块管理，可随时手动移除。
 
 ---
 
@@ -235,6 +244,22 @@ python main.py
 
 ---
 
+## 📁 项目结构
+
+```
+murig/
+├── main.py                             # 主程序：UI + 下载 / 解压 / 环境变量逻辑
+├── requirements.txt                    # PySide6 + requests
+├── murig.spec                          # PyInstaller 打包配置
+├── README.md / README_EN.md            # 中文 / 英文说明
+├── LICENSE                             # MIT
+├── .github/workflows/
+│   └── build-and-release.yml           # 四平台构建与自动发布
+└── assets/                             # 截图与打赏二维码
+```
+
+---
+
 ## 🏗️ 技术栈
 
 - **语言 / GUI**：Python 3.9+、PySide6（Qt 6 官方 Python 绑定）
@@ -260,6 +285,8 @@ python main.py
 **安装 Claude Code 提示找不到 npm？** 先到「前端相关」分类安装 Node.js，再回到 Claude Code 卡片点击安装。
 
 **信创数据库支持到什么程度？** openGauss / OceanBase / TiDB / KingbaseES / YashanDB 仅 Linux，自动下载并解包到工作目录；建用户、建数据目录等实例初始化按日志提示参照官方文档完成。
+
+**如何彻底移除本工具写入的环境变量？** macOS/Linux 删除 shell 配置中 `# >>> env-auto-setup:<组件> >>>` 与 `# <<< env-auto-setup:<组件> <<<` 之间的块（PATH 条目同理）；Windows 到「系统属性 → 环境变量 → 用户变量」删除对应项即可。
 
 ---
 
